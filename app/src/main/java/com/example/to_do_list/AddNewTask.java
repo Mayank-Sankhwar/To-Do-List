@@ -50,7 +50,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
             mEditText.setText(task);
 
             if(task.length()>0){
-                mSaveButton.setEnabled(false);
+                mSaveButton.setEnabled(true);
             }
         }
         mEditText.addTextChangedListener(new TextWatcher() {
