@@ -42,6 +42,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
      final ToDoModel item=mList.get(position);
+
+    holder.checkBox.setText(item.getTask());
      holder.checkBox.setChecked(toBoolean(item.getStatus()));
      holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
          @Override
@@ -75,7 +77,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
     public void editItems(int position){
      ToDoModel item =mList.get(position);
         Bundle bundle=new Bundle();
-        bundle.putInt("Id",item.getId());
+        bundle.putInt("ID",item.getId());
         bundle.putString("task",item.getTask());
 
         AddNewTask task=new AddNewTask();

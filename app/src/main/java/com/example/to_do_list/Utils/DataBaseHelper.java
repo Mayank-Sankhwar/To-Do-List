@@ -50,19 +50,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, task);
-        db.update(TABLE_NAME, contentValues, "ID=", new String[]{String.valueOf(id)});
+        db.update(TABLE_NAME, contentValues, "ID=?", new String[]{String.valueOf(id)});
     }
 
     public void updateStatus(int id, int status) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_3, status);
-        db.update(TABLE_NAME, contentValues, "ID=", new String[]{String.valueOf(id)});
+        db.update(TABLE_NAME, contentValues, "ID=?", new String[]{String.valueOf(id)});
     }
 
     public void deleteTask(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, "ID=", new String[]{String.valueOf(id)});
+        db.delete(TABLE_NAME, "ID=?", new String[]{String.valueOf(id)});
     }
     @SuppressLint("Range")
     public List<ToDoModel> getAllTasks(){
